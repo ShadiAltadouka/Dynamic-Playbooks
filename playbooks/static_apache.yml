@@ -1,0 +1,15 @@
+---
+- name: Install http Package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install HTTP
+      package:
+        name: "{{ apache_package }}"
+        state: latest
+
+    # - name: Start & Enable service httpd
+    #   service:
+    #     name: "{{ apache_service }}"
+    #     state: started
+    #     enabled: yes

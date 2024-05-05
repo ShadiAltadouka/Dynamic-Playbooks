@@ -1,0 +1,4 @@
+[servers]
+ec2-52-91-5-81.compute-1.amazonaws.com
+ec2-3-88-51-2.compute-1.amazonaws.com 
+ec2-23-22-211-232.compute-1.amazonaws.com ansible_user=ubuntu

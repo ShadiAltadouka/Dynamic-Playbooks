@@ -1,0 +1,7 @@
+---
+- name: Install HTTP
+  package:
+    name: "{{ apache_package }}"
+    state: latest
+  notify:
+  - Start Apache
