@@ -1,0 +1,7 @@
+---
+- name: Install Apache and Start/Enable Service
+  hosts: servers
+  become: yes
+  roles:
+  - install_apache
+  - copy_document_root
