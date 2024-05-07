@@ -1,7 +1,9 @@
-yum_plugin:
+package_plugin:
   - epel-release
   - nrpe
   - nagios-plugins-all
 plugin_service: nrpe.service
+update: yum update -y
+epel: amazon-linux-extras install epel -y
 os_distro: Amazon Linux 2
 passowrd: Sa@060695

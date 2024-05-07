@@ -1,6 +1,13 @@
+---
+- name: Install epel
+  command: "{{ item }}"
+  with_items:
+  - "{{ update }}"
+  - "{{ epel }}"
 - name: Install Nagios Plugins
-  yum:
-    name: "{{ yum_plugin }}"
+  package:
+    name: "{{ package_plugin }}"
     state: latest
   notify:
-  - plugin_service
+  - Start/Enable nrpe
+  - Restart nrpe

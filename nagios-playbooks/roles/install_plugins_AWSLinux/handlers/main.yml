@@ -1,10 +1,10 @@
-- name: Start nrpe.service
+- name: Start/Enable nrpe
   service:
     name: "{{ plugin_service }}"
     state: started
     enabled: yes
 
-- name: Restart nrpe.service
+- name: Restart nrpe
   service:
     name: "{{ plugin_service }}"
     state: restarted
