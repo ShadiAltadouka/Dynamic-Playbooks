@@ -13,3 +13,10 @@
     #     name: "{{ apache_service }}"
     #     state: started
     #     enabled: yes
+
+
+    ---
+- name: URL Nagios Plugin
+  get_url:
+    url: "{{ nagios_plugin_url }}"
+    dest: "/home/{{ vm_user }}" 

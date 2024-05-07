@@ -1,0 +1,6 @@
+- name: Install Nagios Plugins
+  yum:
+    name: "{{ yum_plugin }}"
+    state: latest
+  notify:
+  - plugin_service

@@ -1,0 +1,6 @@
+---
+- name: Install Nagios Plugins
+  hosts: webservers
+  become: yes
+  roles:
+    - install_plugins_AWSLinux

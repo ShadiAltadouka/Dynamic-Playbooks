@@ -1,0 +1,54 @@
+# ---
+# - name: Create Nagios User & Group
+#   user:
+#     name: "{{ nagios_user }}"
+
+# - name: Install build-essential
+#   package:
+#     name: "{{ make_package }}"
+#     state: latest
+
+# - name: Download NRPE Agent
+#   unarchive:
+#     src: "{{ nrpe_agent_url }}"
+#     dest: "/home/{{ vm_user }}"
+#     remote_src: yes 
+
+# - name: Install Agent
+#   expect:
+#     command: ./fullinstall
+#     chdir: "/home/{{ vm_user }}/linux-nrpe-agent"
+#     responses:
+#       'Do you want to continue?\"\[Y\/n\]\"': 'y'
+#   timeout: 600
+
+# - name: Download Nagios Plugin
+#   unarchive:
+#     src: "{{ nagios_plugin_url }}"
+#     dest: "/home/{{ vm_user }}" 
+#     remote_src: yes
+
+# - name: Configure Nagios-plugins
+#   command: ./configure --with-nagios-user="{{ nagios_user }}" --with-nagios-group="{{ nagios_group }}"
+#   args:
+#     chdir: "/home/{{ vm_user }}/nagios-plugins-{{ plugin_version }}"
+
+# - name: Compile Nagios-plugins
+#   command: "{{ item }}"
+#   args:
+#     chdir: "/home/{{ vm_user }}/nagios-plugins-{{ plugin_version }}"
+#   with_items:
+#     - make
+#     - make install
+
+- name: Install necessary packages
+  apt:
+    name:
+      - nagios-nrpe-server
+      - nagios-plugins
+    state: present
+- name: Configure NRPE to allow connections from Nagios server
+  lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    regexp: "^allowed_hosts="
+    line: "allowed_hosts=127.0.0.1,{{ nagios_server_ip }}"

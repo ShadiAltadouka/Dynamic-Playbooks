@@ -1,0 +1,12 @@
+nagios_plugin_url: https://nagios-plugins.org/download/nagios-plugins-2.4.10.tar.gz
+nrpe_agent_url: http://assets.nagios.com/downloads/nagiosxi/agents/linux-nrpe-agent.tar.gz
+nagios_plugin_name: nagios-plugins-2.4.10.tar.gz
+nagios_server_ip: 172.31.24.126
+plugin_service: nagios
+vm_user: ubuntu
+nagios_user: nagios
+nagios_group: nagios
+plugin_version: 2.4.10
+make_package: build-essential
+os_distro: Ubuntu
+passowrd: Sa@060695
