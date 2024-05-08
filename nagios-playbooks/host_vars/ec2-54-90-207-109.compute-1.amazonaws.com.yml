@@ -6,6 +6,7 @@
 # nagios_group: nagios
 # plugin_version: 2.4.10
 # make_package: build-essential
+nagios_server_ip: 54.164.106.130
 plugin_service: nagios-nrpe-server
 package_plugin:
   - nagios-plugins-basic
@@ -14,3 +15,6 @@ update: apt update
 epel: apt update
 os_distro: Ubuntu
 passowrd: Sa@060695
+remote_host_name: ip-172-31-25-73.ec2.internal
+remote_server_ip: 54.164.106.130
+alias: My first Apache server

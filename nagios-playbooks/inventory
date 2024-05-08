@@ -1,6 +1,6 @@
 [webservers]
-ec2-3-80-107-234.compute-1.amazonaws.com
-ec2-3-88-90-254.compute-1.amazonaws.com
+ec2-3-89-38-156.compute-1.amazonaws.com
+ec2-3-80-76-156.compute-1.amazonaws.com
 
 [ubuntu]
-ec2-54-172-175-8.compute-1.amazonaws.com ansible_user=ubuntu
+ec2-54-90-207-109.compute-1.amazonaws.com ansible_user=ubuntu

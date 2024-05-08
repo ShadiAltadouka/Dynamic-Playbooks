@@ -4,6 +4,7 @@
   with_items:
   - "{{ update }}"
   - "{{ epel }}"
+
 - name: Install Nagios Plugins
   package:
     name: "{{ package_plugin }}"
@@ -11,3 +12,30 @@
   notify:
   - Start/Enable nrpe
   - Restart nrpe
+
+- name: Create Nagios Server Directories
+  file:
+    path: /usr/local/nagios/etc/servers/
+    state: directory
+    recurse: yes
+
+- name: Create Nagios Server Config File On Hosts
+  file:
+    path: /usr/local/nagios/etc/servers/server.cfg
+    state: touch
+
+- name: Configure NRPE to allow connections from Nagios server
+  lineinfile:
+    path: /etc/nagios/nrpe.cfg
+    regexp: "^allowed_hosts="
+    line: "allowed_hosts=127.0.0.1,{{ nagios_server_ip }}"
+
+- name: Define remote host in server config file
+  template: 
+    src: remote-host.j2 
+    dest: /usr/local/nagios/etc/servers/server.cfg
+
+- name: Reload Nagios
+  service: 
+    name: "{{ plugin_service }}"
+    state: reloaded
