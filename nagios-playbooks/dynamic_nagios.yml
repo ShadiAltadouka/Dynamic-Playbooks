@@ -3,4 +3,4 @@
   hosts: all
   become: yes
   roles:
-    - install_plugins_AWSLinux
+  - install_plugins_AWSLinux

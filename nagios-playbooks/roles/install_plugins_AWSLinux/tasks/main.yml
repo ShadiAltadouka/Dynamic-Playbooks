@@ -21,7 +21,7 @@
 
 - name: Create Nagios Server Config File On Hosts
   file:
-    path: /usr/local/nagios/etc/servers/server.cfg
+    path: /usr/local/nagios/etc/servers/nagios.cfg
     state: touch
 
 - name: Configure NRPE to allow connections from Nagios server
@@ -33,7 +33,7 @@
 - name: Define remote host in server config file
   template: 
     src: remote-host.j2 
-    dest: /usr/local/nagios/etc/servers/server.cfg
+    dest: /usr/local/nagios/etc/servers/nagios.cfg
 
 - name: Reload Nagios
   service: 

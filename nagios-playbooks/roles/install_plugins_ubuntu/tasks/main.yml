@@ -54,6 +54,6 @@
 #     line: "allowed_hosts=127.0.0.1,{{ nagios_server_ip }}"
 ---
 - name: rename file
-  command: mv server.cfg nagios.cfg
+  command: rm -rf server.cfg
   args: 
     chdir: /usr/local/nagios/etc/servers
